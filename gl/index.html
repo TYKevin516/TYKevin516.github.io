@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -18,6 +18,7 @@
             cursor: pointer;
             font-size: 24px;
             z-index: 1000;
+            transition: all 0.3s ease; /* 添加过渡效果 */
         }
 
         .menu {
@@ -57,33 +58,68 @@
         .menu.active {
             right: 0;
         }
+
+        /* 修正：按钮滑动到左上角 */
+        .menu-icon.active {
+            right: auto; /* 取消右侧定位 */
+            left: 20px; /* 定位到左上角 */
+            top: 20px; /* 保持顶部距离 */
+            font-size: 24px;
+            content: '←';
+        }
     </style>
 </head>
 <body>
 
     <!-- 右上角三个点 -->
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div>
 
     <!-- 菜单栏 -->
     <div class="menu" id="menu">
         <ul>
-            <li><a href="https://tykevin516.github.io/home.html">首页</a></li>
-            <li><a href="https://tykevin516.github.io/gl">古老师规则怪谈</a></li>
-            <li><a href="#">服务</a></li>
-            <li><a href="#">联系</a></li>
+            <li><a href="https://tykevin516.github.io/gl/">首页</a></li>
+            <li><a href="https://tykevin516.github.io/gl/1.html">第二页</a></li>
+            <li><a href="https://tykevin516.github.io/gl/2.html">第三页</a></li>
+            <li><a href="https://tykevin516.github.io/gl/4.html">第四页</a></li>
         </ul>
     </div>
 
     <script>
         function toggleMenu() {
             var menu = document.getElementById("menu");
+            var menuIcon = document.getElementById("menuIcon");
             menu.classList.toggle("active");
+            menuIcon.classList.toggle("active");
+
+            if (menu.classList.contains("active")) {
+                menuIcon.innerHTML = '→'; // 变为向左的箭头
+            } else {
+                menuIcon.innerHTML = '&#9776;'; // 恢复为三个点
+            }
         }
     </script>
-<h1>古老师规则怪谈</h1>
-<h2>如果你想要在心田花开活下去，请遵守以下规则</h2>
-<a>1.上课不能迟到，如果迟到了，请接受惩罚，如果无法完成请找理由</a>
-<a>2.古老师不会布置作业，如果收到作业，请不要完成。</a>
-<a>3.古老师只会穿白色的衣服</a>
+    <h1>........</h1>
+    <h1>古老师规则怪谈</h1>
+    <h2>如果你想要在心田花开活下去，请遵守以下规则</h2>
+    <a>1.上课不能迟到，如果迟到了，请接受惩罚，如果无法完成请找理由</a>
+    </p>
+    <a>2.古老师不会布置作业，如果收到作业，请不要完成。</a>
+    </p>
+    <a>3.古老师只会穿白色的衣服</a>
+    </p>
+    <a>4.古老师不会迟到，如果他迟到了可以惩罚她</a>
+    </p>
+    <a>5.古老师在寒假会请我们吃火锅，请必须去</a>
+    </p>
+    <a>6.心田花开不会有什么测验，如果有请离开此地，因为你所在的不是心田花开，逃跑期间请勿回头</a>
+    </p>
+    <a>7.拖堂请无视，自行离开</a>
+    </p>
+    <a>8.如果古老师强制要求你写作业，请将作业放到锅里面煮，这样可以暑假在写</a>
+    </p>
+    <a>9.古老师在怒气值到极点时会发动技能“潋滟红唇💋”，请跑到厕所隔间躲避</a>
+    </p>
+    <a>10.如果你考试达到了全班第一，可以向古老师提出一个要求</a>
+    
 </body>
 </html>
